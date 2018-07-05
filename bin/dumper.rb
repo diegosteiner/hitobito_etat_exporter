@@ -10,7 +10,7 @@ class Dumper
   def dump(data, source_file)
     return unless data && source_file
     target_file = File.realdirpath(File.join(File.dirname(source_file), '..', 'out', File.basename(source_file)))
-    CSV.open(target_file, 'wb') do |csv|
+    CSV.open(target_file, 'wb', csv_options) do |csv|
       csv << data.first.keys
       data.each do |row|
         csv << row.values

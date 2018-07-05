@@ -16,6 +16,7 @@ class RoleVisitor
     roles.map do |role|
       row.to_h.dup.tap do |r|
         r['Rollen'] = role.role
+        r['Role'] = role.role_type
         r['RolePos'] = role.role_pos
       end
     end

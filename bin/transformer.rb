@@ -1,4 +1,5 @@
 require_relative 'role_visitor'
+require_relative 'clean_visitor'
 
 class Transformer
   attr_accessor :data
@@ -6,7 +7,7 @@ class Transformer
   def initialize(data)
     @original_data = data.freeze
     @data = data.dup
-    @visitors = [RoleVisitor.new]
+    @visitors = [RoleVisitor.new, CleanVisitor.new]
   end
 
   def call
